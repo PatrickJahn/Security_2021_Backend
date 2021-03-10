@@ -1,7 +1,9 @@
 package Service;
 
+import javax.servlet.http.HttpServletRequest;
+
 public interface ILoginService {
-    public boolean verifyCredentials(String username, String password);
-    public boolean logout();
+    public String verifyCredentials(String username, String password);
+    public boolean logout(HttpServletRequest request);
     public boolean isLoggedin();
 }
