@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class LoginDaoImpl implements LoginDao {
 
@@ -34,14 +35,24 @@ public class LoginDaoImpl implements LoginDao {
     try
     {
         con = imc.connect();
+        
+        // Source
         statement = con.prepareStatement("Select username, password, role from users Where username=?");
        statement.setString(1, userName);
+       
         resultSet = statement.executeQuery();
  
         while(resultSet.next())
         {
             userNameDB = resultSet.getString("username");
-            passwordDB = resultSet.getString("password");
+                System.out.println(BCrypt.checkpw(password, resultSet.getString("password")));
+            if (BCrypt.checkpw(password, resultSet.getString("password"))){
+                passwordDB = password;
+            } else {
+                return "Wrong username or password";
+            }
+          
+            
             roleDB = resultSet.getString("role");
  
             if(userName.equals(userNameDB) && password.equals(passwordDB) && roleDB.equals("Admin"))

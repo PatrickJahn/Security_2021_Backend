@@ -9,12 +9,11 @@
 <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Login</title>
+    <title>Signup</title>
     </head>
     <body>
-        
-        <h1>Login </h1>
-        <form name="form" action="<%=request.getContextPath()%>/login" method="post">
+          <h1>Signup </h1>
+        <form name="form" action="<%=request.getContextPath()%>/Signup" method="post">
  
         <table align="center">
         <tr>
@@ -30,10 +29,9 @@
         </tr>
         <tr>
         <td></td>
-        <td><input type="submit" value="Login"></input><input type="reset" value="Reset"></input></td>
+        <td><input type="submit" value="Signup"></input><input type="reset" value="Reset"></input></td>
         </tr>
         </table>
         </form>
-        <a href="<%=request.getContextPath()%>/Signup.jsp">Signup here</a>
     </body>
 </html>

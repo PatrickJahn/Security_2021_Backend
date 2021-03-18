@@ -22,10 +22,16 @@ public LoginServlet() {
  
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 {
+    // Sources
     String userName = request.getParameter("username");
     String password = request.getParameter("password");
     
-
+    // Sanetize 
+       if(!request.getParameter("username").matches("[\\w*\\-s]*")){    
+            request.setAttribute("errMessage", "Username can only be letters and numbers.");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            return;
+        }
  
     LoginService loginService = new LoginService();
  
@@ -63,11 +69,11 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             session.setAttribute("User", userName);
             request.setAttribute("userName", userName);
  
-            request.getRequestDispatcher("/JSP/User.jsp").forward(request, response);
+            request.getRequestDispatcher("/user.jsp").forward(request, response);
         }
         else
         {
-            System.out.println("Error message = "+userValidate);
+            System.out.println("Error message = "+ userValidate);
             request.setAttribute("errMessage", userValidate);
  
             request.getRequestDispatcher("/login.jsp").forward(request, response);
