@@ -9,6 +9,7 @@ package Service;
 import Models.Msg;
 import Persistence.MsgDaoImpl;
 import Persistence.DAO.MsgDao;
+import java.util.List;
 /**
  *
  * @author Patrick
@@ -26,5 +27,12 @@ public class MsgService implements IMsgService {
     return ldi.addNewMessage(msg);
 
 }
+
+    @Override
+    public List<Msg> getAllMessages() {
+        
+      return ldi.getAllMsgs();
+       
+    }
 
 }

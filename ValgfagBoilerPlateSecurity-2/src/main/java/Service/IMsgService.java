@@ -1,11 +1,13 @@
 package Service;
 
-import javax.servlet.http.HttpServletRequest;
 import Models.Msg;
+import java.util.List;
 
 public interface IMsgService {
 
 
     public String addNewMsg(Msg msg);
+     public List<Msg> getAllMessages();
+    
     
 }

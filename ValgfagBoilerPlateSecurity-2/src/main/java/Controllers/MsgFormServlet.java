@@ -35,7 +35,7 @@ public MsgFormServlet() {
 
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 {
-String path = "/Users/Patrick/desktop/img-test/";
+String path = "/Users/Patrick/Desktop/securityOpgave/ValgfagBoilerPlateSecurity-2/src/main/webapp/Images/";
     // Sources
     String title = request.getParameter("title");
     String msgText = request.getParameter("msgText");
@@ -53,7 +53,7 @@ String fileName = filePart.getSubmittedFileName();
     System.out.println(path + fileName);
  }
 
-    String fullImgPath = path + fileName;
+    String fullImgPath = fileName;
     Msg msg = new Msg(title, msgText, fullImgPath);
 
   MsgService msgService = new MsgService();

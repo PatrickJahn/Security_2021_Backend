@@ -36,4 +36,11 @@ public String getImgPath(){
 return this.imgPath;
 }
 
+    @Override
+    public String toString() {
+        return "Msg{" + "title=" + title + ", msg=" + msg + ", imgPath=" + imgPath + '}';
+    }
+
+
+
 }

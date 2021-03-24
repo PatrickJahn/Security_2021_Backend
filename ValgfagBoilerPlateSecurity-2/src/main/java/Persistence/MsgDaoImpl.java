@@ -9,12 +9,12 @@ import Dependencies.IMysqlConnection;
 import Dependencies.MysqlConnection;
 import Models.Msg;
 import Persistence.DAO.MsgDao;
-import Persistence.DAO.MsgDao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Patrick
@@ -57,8 +57,37 @@ public class MsgDaoImpl implements MsgDao  {
     }
 
 
-    public String getAllMsgs(Msg msg){
-    return "s";
-}
+  @Override
+    public List<Msg> getAllMsgs(){
+    Connection con = null;
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    List<Msg> messages = new ArrayList();
+ 
+    try
+    {
+        con = imc.connect();
+        
+        // Source
+        statement = con.prepareStatement("Select * from posts");
+        
+       resultSet = statement.executeQuery();
+       
+       // DDOST sikring her please
+       
+       while(resultSet.next()){
+           Msg message = new Msg(resultSet.getString("title"),resultSet.getString("msg"),resultSet.getString("imgPath"));
+            messages.add(message);
+       
+       }
+ 
+       return messages;
+    }
+    catch(SQLException e)
+    {
+        e.printStackTrace();
+    }
+    return messages;
+    }
 
 }

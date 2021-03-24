@@ -1,9 +1,9 @@
 package Controllers;
-import Models.User;
-import Persistence.DAO.LoginDao;
-import Persistence.LoginDaoImpl;
+import Models.Msg;
 import Service.LoginService;
+import Service.MsgService;
 import java.io.IOException;
+import java.util.List;
  
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +34,8 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
         }
  
     LoginService loginService = new LoginService();
- 
+        MsgService msgService = new MsgService();
+        
     try
     {
         String userValidate = loginService.verifyCredentials(userName, password);
@@ -68,8 +69,11 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             session.setMaxInactiveInterval(10*60);
             session.setAttribute("User", userName);
             request.setAttribute("userName", userName);
+            
+            List<Msg> messages = msgService.getAllMessages();
+            request.setAttribute("messages", messages);
  
-           
+             request.getRequestDispatcher("/user.jsp").forward(request, response);
         }
         else
         {

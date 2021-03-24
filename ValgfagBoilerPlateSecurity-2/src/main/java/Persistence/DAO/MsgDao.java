@@ -6,6 +6,7 @@
 
 package Persistence.DAO;
 import Models.Msg; 
+import java.util.List;
 
 /**
  *
@@ -14,6 +15,6 @@ import Models.Msg;
 public interface MsgDao {
 
     public String addNewMessage(Msg msg);
-    public String getAllMsgs(Msg msg);
+    public List<Msg> getAllMsgs();
 
 }
