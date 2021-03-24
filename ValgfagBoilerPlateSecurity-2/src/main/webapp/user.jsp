@@ -17,9 +17,19 @@ if((request.getSession(false).getAttribute("User") == null) )
 <%} %>
 <body>
 <center><h2>User's Forum</h2></center>
+
+
  
 Welcome <%=request.getAttribute("userName") %>
  
 <div style="text-align: right"><a href="<%=request.getContextPath()%>/logout">Logout</a></div>
+<div style="text-align: right"><a href="<%=request.getContextPath()%>/msgForm.jsp">Post new msg</a></div>
+
+<div class="msgDiv">
+    <h3 class="msgUser"> Username has posted</h3>
+    <h2 class="msgTitle">Title</h2>
+    <h5 class="msgText">Example msg ajnsdjndasjkndjnasndljanjlsdnasndjklnasjndanjsdnjlasldnasdjnlj :)</h5>
+        <!-- muligvis <img>-->
+</div>
 </body>
 </html>

@@ -12,6 +12,10 @@
         <servlet-name>SomeController</servlet-name>
         <servlet-class>Controllers.SomeController</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>MsgFormServlet</servlet-name>
+        <servlet-class>Controllers.MsgFormServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Controllers.LoginServlet</servlet-class>
@@ -39,5 +43,9 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>MsgFormServlet</servlet-name>
+        <url-pattern>/msgForm</url-pattern>
     </servlet-mapping>
 </web-app>

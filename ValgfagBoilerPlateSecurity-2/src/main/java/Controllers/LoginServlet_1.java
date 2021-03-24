@@ -14,12 +14,12 @@ import javax.servlet.http.HttpSession;
 // import com.login.bean.LoginBean;
 // import com.login.dao.LoginDao;
  
-public class LoginServlet extends HttpServlet {
+public class LoginServlet_1 extends HttpServlet {
 private static final long serialVersionUID = 1L;
  
-public LoginServlet() {
+public LoginServlet_1() {
 }
-
+ 
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 {
     // Sources
