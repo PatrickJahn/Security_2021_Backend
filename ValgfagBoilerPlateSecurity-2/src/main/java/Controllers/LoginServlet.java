@@ -69,7 +69,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             session.setAttribute("User", userName);
             request.setAttribute("userName", userName);
  
-            request.getRequestDispatcher("/user.jsp").forward(request, response);
+           
         }
         else
         {

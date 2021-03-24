@@ -20,7 +20,7 @@ textarea {
     <body>
         
         <h1>New message goes here </h1>
-        <form name="form" action="<%=request.getContextPath()%>/user" method="post">
+        <form enctype="multipart/form-data" name="form" action="<%=request.getContextPath()%>/msgForm" method="post">
  
         <table align="center">
         <tr>
