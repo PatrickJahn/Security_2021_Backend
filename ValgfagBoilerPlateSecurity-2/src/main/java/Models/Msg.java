@@ -16,12 +16,18 @@ public class Msg {
 private String title;
 private String msg; 
 private String imgPath;
+private String userName;
 
-public Msg(String title, String msg, String imgPath){
+public Msg(String title, String msg, String imgPath, String userName){
 this.title = title;
 this.msg = msg;
 this.imgPath = imgPath;
+this.userName = userName;
   
+}
+
+public String getUsername(){
+return this.userName;
 }
 
 public String getTitle(){
@@ -38,9 +44,9 @@ return this.imgPath;
 
     @Override
     public String toString() {
-        return "Msg{" + "title=" + title + ", msg=" + msg + ", imgPath=" + imgPath + '}';
+        return "Msg{" + "title=" + title + ", msg=" + msg + ", imgPath=" + imgPath + ", userName=" + userName + '}';
     }
 
-
+  
 
 }

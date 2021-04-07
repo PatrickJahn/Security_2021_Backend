@@ -6,10 +6,9 @@
 
 package Controllers;
 import Models.Msg;
-import Persistence.DAO.MsgDao;
-import Persistence.MsgDaoImpl;
 import Service.MsgService;
 import java.io.IOException;
+import java.util.UUID;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.ServletException;
@@ -35,7 +34,8 @@ public MsgFormServlet() {
 
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 {
-String path = "/Users/Patrick/Desktop/securityOpgave/ValgfagBoilerPlateSecurity-2/src/main/webapp/Images/";
+    
+final String PATH = "/Users/Patrick/Desktop/securityOpgave/ValgfagBoilerPlateSecurity-2/src/main/webapp/Images/";
     // Sources
     String title = request.getParameter("title");
     String msgText = request.getParameter("msgText");
@@ -43,23 +43,103 @@ String path = "/Users/Patrick/Desktop/securityOpgave/ValgfagBoilerPlateSecurity-
 
 
     // Sanetize 
-       
-      
     
+    
+   if (checkExtension(filePart, request, response) && 
+       CheckTextandTitle(title, msgText, request, response)){
+       
+   
+String uniqueID = UUID.randomUUID().toString();
+String fullImgPath = uniqueID + getExtension(filePart.getSubmittedFileName());
+      
 
-String fileName = filePart.getSubmittedFileName();
+
  for(Part part : request.getParts()) {
- part.write(path + fileName );
-    System.out.println(path + fileName);
- }
+ part.write(PATH + fullImgPath );
 
-    String fullImgPath = fileName;
-    Msg msg = new Msg(title, msgText, fullImgPath);
+ }
+  HttpSession session = request.getSession();
+    Msg msg = new Msg(title, msgText, fullImgPath, (String) session.getAttribute("User"));
 
   MsgService msgService = new MsgService();
+  
+ 
     msgService.addNewMsg(msg);
+    
 
-   request.getRequestDispatcher("/user.jsp").forward(request, response);
-   
+            
+   response.sendRedirect("/homeservlet");
+   }
+ 
 } //End of doPost()
+
+
+ String getExtension(String filename){
+     
+       int index = filename.lastIndexOf(".");
+       
+       String extension = filename.substring(index);
+       return extension;
+       
+ }
+ 
+ Boolean checkExtension(Part file, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+     String filename = file.getSubmittedFileName();
+     long fileSize = file.getSize();
+  
+      int index = filename.lastIndexOf(".");
+      
+      if (index < 0){
+           req.setAttribute("errMessage", "Please select a image");
+          req.getRequestDispatcher("/msgForm.jsp").forward(req, res);
+          return false;
+      }
+      
+      if (fileSize > 10000000){
+          req.setAttribute("errMessage", "File is too large");
+          req.getRequestDispatcher("/msgForm.jsp").forward(req, res);
+          return false;
+      }
+     
+       if (index >  30){
+             req.setAttribute("errMessage", "File name too long");
+          req.getRequestDispatcher("/msgForm.jsp").forward(req, res);
+           return false;
+       }
+           String extension = filename.substring(index);
+           System.out.println(extension);
+           
+           
+            
+      if (!extension.equals(".png") && !extension.equals(".jpg")){
+            req.setAttribute("errMessage", "File must be png or jpg");
+          req.getRequestDispatcher("/msgForm.jsp").forward(req, res);
+     
+          return false;
+      }
+      
+       return true;
+       
+ }
+ 
+ 
+ Boolean CheckTextandTitle(String title,String msgText, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+     
+     if (title.length() > 30){
+          req.setAttribute("errMessage", "Title is too long");
+          req.getRequestDispatcher("/msgForm.jsp").forward(req, res);
+         return false;
+     }
+     
+          
+     if (msgText.length() > 300){
+          req.setAttribute("errMessage", "Message text is too long");
+          req.getRequestDispatcher("/msgForm.jsp").forward(req, res);
+         return false;
+     }
+     return true;
+ }
+ 
+ 
+ 
 }

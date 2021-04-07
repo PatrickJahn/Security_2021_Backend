@@ -3,6 +3,7 @@ import Models.Msg;
 import Service.LoginService;
 import Service.MsgService;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
  
 import javax.servlet.ServletException;
@@ -34,7 +35,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
         }
  
     LoginService loginService = new LoginService();
-        MsgService msgService = new MsgService();
+
         
     try
     {
@@ -59,6 +60,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             session.setAttribute("Editor", userName);
             request.setAttribute("userName", userName);
  
+            
             request.getRequestDispatcher("/JSP/Editor.jsp").forward(request, response);
         }
         else if(userValidate.equals("User_Role"))
@@ -68,19 +70,16 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(10*60);
             session.setAttribute("User", userName);
-            request.setAttribute("userName", userName);
-            
-            List<Msg> messages = msgService.getAllMessages();
-            request.setAttribute("messages", messages);
- 
-             request.getRequestDispatcher("/user.jsp").forward(request, response);
+          
+          response.sendRedirect("/homeservlet");
+         
         }
         else
         {
             System.out.println("Error message = "+ userValidate);
             request.setAttribute("errMessage", userValidate);
  
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/homeservlet").forward(request, response);
         }
     }
     catch (IOException e1)

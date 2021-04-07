@@ -22,14 +22,14 @@ if((request.getSession(false).getAttribute("User") == null) )
 
 
  
-Welcome <%=request.getAttribute("userName") %>
+Welcome <%=session.getAttribute("User") %>
  
 <div style="text-align: right"><a href="<%=request.getContextPath()%>/logout">Logout</a></div>
 <div style="text-align: right"><a href="<%=request.getContextPath()%>/msgForm.jsp">Post new msg</a></div>
 
 <c:forEach var="msg" items="${requestScope.messages}">
     <div class="msgDiv">
-    <h3 class="msgUser"> User name</h3>
+        <a class="msgUser" href="#">${msg.username}</a>
     <h2 class="msgTitle">${msg.title}</h2>
     <h5 class="msgText">${msg.msg}</h5>
     <img src="Images/${msg.imgPath}"/>
