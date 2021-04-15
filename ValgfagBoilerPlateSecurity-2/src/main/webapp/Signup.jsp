@@ -20,10 +20,23 @@
         <td>Username</td>
         <td><input type="text" name="username" /></td>
         </tr>
-        <tr>
+         <tr>
         <td>Password</td>
         <td><input type="text" name="password" /></td>
         </tr>
+        <tr>
+        <td>First name</td>
+        <td><input type="text" name="firstName" /></td>
+        </tr>
+         <tr>
+        <td>Last name</td>
+        <td><input type="text" name="lastName" /></td>
+        </tr>
+        <tr>
+        <td> Profile image</td>
+        <td><input type="file" name="file" /></td>
+        </tr>
+        <tr>
         <tr>
         <td><span style="color:red"><%=(request.getAttribute("errMessage") == null) ? "" : request.getAttribute("errMessage")%></span></td>
         </tr>

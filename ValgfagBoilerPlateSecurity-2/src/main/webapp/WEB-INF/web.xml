@@ -3,7 +3,10 @@
     <welcome-file-list>
         <welcome-file>/login.jsp</welcome-file>
     </welcome-file-list>
-   
+    <servlet-mapping>
+        <servlet-name>profileServlet</servlet-name>
+        <url-pattern>/profileServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>5</session-timeout>
     </session-config>
@@ -32,6 +35,10 @@
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>Controllers.HomeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>profileServlet</servlet-name>
+        <servlet-class>Controllers.profileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SomeController</servlet-name>
         <url-pattern>/test</url-pattern>
@@ -52,7 +59,7 @@
         <servlet-name>MsgFormServlet</servlet-name>
         <url-pattern>/msgForm</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/homeservlet</url-pattern>
     </servlet-mapping>

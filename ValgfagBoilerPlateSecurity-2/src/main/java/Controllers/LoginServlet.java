@@ -79,7 +79,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             System.out.println("Error message = "+ userValidate);
             request.setAttribute("errMessage", userValidate);
  
-            request.getRequestDispatcher("/homeservlet").forward(request, response);
+            request.getRequestDispatcher("/").forward(request, response);
         }
     }
     catch (IOException e1)

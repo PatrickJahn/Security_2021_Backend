@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Errors.SignupError;
 import Models.User;
 import Service.LoginService;
 import Service.SignupService;
@@ -28,6 +29,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
     // Sources
     String userName = request.getParameter("username");
     String password = request.getParameter("password");
+    String firstName = request.getParameter("firstName");
+    String lastName = request.getParameter("lastName");
+     
     
   
     SignupService signupService = new SignupService();
@@ -35,17 +39,17 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
     try
     {
         
-      
-       String msg = signupService.verifyCredentials(userName, password);
+            signupService.createUser(userName, password, firstName, lastName);
        
        
-       request.setAttribute("errMessage",msg);
+        request.getRequestDispatcher("/login").forward(request, response);
+       
+    }
+    catch (SignupError e)
+    {
+       request.setAttribute("errMessage",e.getMessage());
        request.getRequestDispatcher("/Signup.jsp").forward(request, response);
         
-    }
-    catch (Exception e2)
-    {
-        e2.printStackTrace();
     }
 } //End of doPost()
 }

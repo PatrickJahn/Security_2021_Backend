@@ -21,15 +21,17 @@ if((request.getSession(false).getAttribute("User") == null) )
 <center><h2>User's Forum</h2></center>
 
 
- 
+ <span style="color:red"><%=(request.getAttribute("errMessage") == null) ? "" : request.getAttribute("errMessage")%></span>
 Welcome <%=session.getAttribute("User") %>
  
 <div style="text-align: right"><a href="<%=request.getContextPath()%>/logout">Logout</a></div>
 <div style="text-align: right"><a href="<%=request.getContextPath()%>/msgForm.jsp">Post new msg</a></div>
 
 <c:forEach var="msg" items="${requestScope.messages}">
+    
+   
     <div class="msgDiv">
-        <a class="msgUser" href="#">${msg.username}</a>
+    <a class="msgUser" href="<%=request.getContextPath()%>/profileServlet?username=${msg.username}">${msg.username}</a>
     <h2 class="msgTitle">${msg.title}</h2>
     <h5 class="msgText">${msg.msg}</h5>
     <img src="Images/${msg.imgPath}"/>
