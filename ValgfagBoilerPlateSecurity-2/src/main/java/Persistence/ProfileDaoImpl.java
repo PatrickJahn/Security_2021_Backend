@@ -38,7 +38,7 @@ public class ProfileDaoImpl implements ProfileDao{
         con = imc.connect();
         
         // Source
-        statement = con.prepareStatement("Select username, firstName, lastName, role from users Where username=?");
+        statement = con.prepareStatement("Select Id, username, firstName, lastName, imgPath, role from users Where username=?");
        statement.setString(1, username);
        
         resultSet = statement.executeQuery();
@@ -46,15 +46,16 @@ public class ProfileDaoImpl implements ProfileDao{
         if (!resultSet.next()){
             throw new ProfileError("Something went wrong");
         }
-      
+        int id = resultSet.getInt("Id");
         String firstName = resultSet.getString("firstName");
         String lastName = resultSet.getString("lastName");
-        
+        String imgPath = resultSet.getString("imgPath");
       
-        
+        user.setId(id);
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setUsername(username);
+        user.setImgPath(imgPath);
        
         
         

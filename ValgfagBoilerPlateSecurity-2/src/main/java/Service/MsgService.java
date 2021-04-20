@@ -34,5 +34,11 @@ public class MsgService implements IMsgService {
       return ldi.getAllMsgs();
        
     }
-
+    
+    @Override
+    public List<Msg> getAllMessagesByUser(int id) {
+        
+      return ldi.getAllMsgsByUser(id);
+       
+    }
 }

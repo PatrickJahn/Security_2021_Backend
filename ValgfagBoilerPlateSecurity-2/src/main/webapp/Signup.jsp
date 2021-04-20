@@ -13,7 +13,7 @@
     </head>
     <body>
           <h1>Signup </h1>
-        <form name="form" action="<%=request.getContextPath()%>/Signup" method="post">
+        <form enctype="multipart/form-data" name="form" action="<%=request.getContextPath()%>/Signup" method="post">
  
         <table align="center">
         <tr>

@@ -70,6 +70,51 @@ public class MsgDaoImpl implements MsgDao  {
 
 
   @Override
+    public List<Msg> getAllMsgsByUser(int id){
+    Connection con = null;
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    List<Msg> messages = new ArrayList();
+ 
+    try
+    {
+        con = imc.connect();
+        
+        // Source
+        statement = con.prepareStatement("SELECT\n" +
+"  posts.id,\n" +
+"  posts.title,\n" +
+"  posts.msg,\n" +
+"  posts.imgPath,\n" +
+"  users.userName\n" +
+"FROM posts\n" +
+"JOIN usersPosts\n" +
+"  ON posts.id = usersPosts.postId\n" +
+"JOIN users\n" +
+"  ON users.id = usersPosts.userId where users.id=?;");
+        statement.setInt(1, id);
+       resultSet = statement.executeQuery();
+       
+       // DDOST sikring her please
+       
+       while(resultSet.next()){
+
+           Msg message = new Msg(resultSet.getString("title"),resultSet.getString("msg"),resultSet.getString("imgPath"), resultSet.getString("userName"));
+            messages.add(message);
+       
+       }
+ 
+       return messages;
+    }
+    catch(SQLException e)
+    {
+        e.printStackTrace();
+    }
+    return messages;
+    }
+
+    
+  @Override
     public List<Msg> getAllMsgs(){
     Connection con = null;
     PreparedStatement statement = null;
@@ -112,5 +157,4 @@ public class MsgDaoImpl implements MsgDao  {
     }
     return messages;
     }
-
 }

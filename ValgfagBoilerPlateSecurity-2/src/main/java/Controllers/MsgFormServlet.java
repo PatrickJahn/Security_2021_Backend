@@ -35,7 +35,7 @@ public MsgFormServlet() {
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 {
     
-final String PATH = "/Users/Patrick/Desktop/securityOpgave/ValgfagBoilerPlateSecurity-2/src/main/webapp/Images/";
+final String PATH = "C:\\Users\\Benjamin\\Desktop\\Security\\Security_2021_Backend\\ValgfagBoilerPlateSecurity-2\\src\\main\\webapp\\Images\\";
     // Sources
     String title = request.getParameter("title");
     String msgText = request.getParameter("msgText");

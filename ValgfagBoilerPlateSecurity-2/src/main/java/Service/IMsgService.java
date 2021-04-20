@@ -8,6 +8,7 @@ public interface IMsgService {
 
     public String addNewMsg(Msg msg);
      public List<Msg> getAllMessages();
+       public List<Msg> getAllMessagesByUser(int id);
     
     
 }

@@ -48,7 +48,7 @@ public class SignupService implements ISignupService {
     }
 
     @Override
-    public String createUser(String username, String password, String firstName, String lastName) throws SignupError{
+    public String createUser(String username, String password, String firstName, String lastName, String imgPath) throws SignupError{
         
         verifyNames(firstName, lastName);
         verifyCredentials(username, password);
@@ -57,7 +57,7 @@ public class SignupService implements ISignupService {
           user.setFirstName(firstName);
           user.setLastName(lastName);
           user.setUsername(username);
-      
+          user.setImgPath(imgPath);
           
           String hashedPass = encryptPassword(password);
           user.setPassword(hashedPass);

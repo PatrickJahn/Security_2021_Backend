@@ -16,5 +16,6 @@ public interface MsgDao {
 
     public String addNewMessage(Msg msg);
     public List<Msg> getAllMsgs();
+    public List<Msg> getAllMsgsByUser(int id);
 
 }

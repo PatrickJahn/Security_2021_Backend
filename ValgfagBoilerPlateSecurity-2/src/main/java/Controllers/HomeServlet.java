@@ -30,8 +30,9 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
       
           List<Msg> messages = msgService.getAllMessages();
-           request.setAttribute("messages", messages);
-         Collections.reverse(messages);
+          Collections.reverse(messages);
+          request.setAttribute("messages", messages);
+         
        
          
         

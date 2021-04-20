@@ -1,16 +1,24 @@
 package Models;
 
 public class User {
-    
+    private int id;
     private String username;
     private String password;
-     private String firstName;
-     private String lastName;
-     
+    private String firstName;
+    private String lastName;
+    private String imgPath;
 
     
     public String getUsername() {
         return username;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setUsername(String username) {
@@ -39,6 +47,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
     
     
