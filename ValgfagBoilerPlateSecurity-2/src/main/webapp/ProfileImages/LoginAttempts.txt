@@ -82,3 +82,25 @@ Apr 28, 2021 2:25:33 PM Log.Log logging
 INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin1
 Apr 28, 2021 2:25:33 PM Log.Log logging
 INFO: Request from IP: 0:0:0:0:0:0:0:1. benjamin1 has succesfully logged in
+Apr 28, 2021 2:39:31 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin1
+Apr 28, 2021 2:39:31 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. benjamin1 has succesfully logged in
+Apr 28, 2021 2:43:09 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with eara
+Apr 28, 2021 2:43:09 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Unsuccesful login attempted with username: eara
+Apr 28, 2021 2:43:17 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin1
+Apr 28, 2021 2:43:18 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. benjamin1 has succesfully logged in
+Apr 28, 2021 2:43:29 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with asdasd
+Apr 28, 2021 2:43:29 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Unsuccesful login attempted with username: asdasd
+Apr 28, 2021 2:44:45 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with John
+Apr 28, 2021 2:45:12 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with asasd
+Apr 28, 2021 2:45:12 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Unsuccesful login attempted with username: asasd

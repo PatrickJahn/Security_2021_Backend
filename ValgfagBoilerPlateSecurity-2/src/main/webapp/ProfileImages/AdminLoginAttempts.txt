@@ -8,3 +8,5 @@ Apr 28, 2021 2:07:20 PM Log.Log logging
 INFO: Request from IP: 0:0:0:0:0:0:0:1. Admin-user logged in with username: John
 Apr 28, 2021 2:09:25 PM Log.Log logging
 INFO: Request from IP: 0:0:0:0:0:0:0:1. Admin-user logged in with username: John
+Apr 28, 2021 2:44:45 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Admin-user logged in with username: John
