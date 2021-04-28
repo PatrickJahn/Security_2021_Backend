@@ -11,6 +11,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Profile</title>
+            <link rel="stylesheet" href="forumStyle.css">
+
         <% //In case, if Admin session is not set, redirect to Login page
 if((request.getSession(false).getAttribute("User") == null) )
 {
@@ -32,14 +34,17 @@ if((request.getSession(false).getAttribute("User") == null) )
 
 <c:forEach var="msg" items="${requestScope.messages}">
     
-   
-    <div class="msgDiv">
-    <a class="msgUser" href="<%=request.getContextPath()%>/profileServlet?username=${msg.username}">${msg.username}</a>
+      <div class="msgDiv">
+        
+        <img class="msgUserImg" src="ProfileImage/something">
     <h2 class="msgTitle">${msg.title}</h2>
+               <a class="msgUser" href="<%=request.getContextPath()%>/profileServlet?username=${msg.username}">by ${msg.username}</a>
+
     <h5 class="msgText">${msg.msg}</h5>
-    <img src="Images/${msg.imgPath}"/>
+    <img class="msgImg" src="Images/${msg.imgPath}"/>
 
 </div>
+    
       </c:forEach>
     </body>
 </html>

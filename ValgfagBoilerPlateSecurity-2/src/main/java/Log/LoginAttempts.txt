@@ -1,0 +1,4 @@
+Apr 28, 2021 3:05:03 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with Patrick
+Apr 28, 2021 3:05:03 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Patrick has succesfully logged in

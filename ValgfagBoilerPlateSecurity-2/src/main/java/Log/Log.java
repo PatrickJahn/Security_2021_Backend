@@ -23,7 +23,7 @@ public class Log {
     FileHandler fileHandler;
 
     public Log(String fileName) throws IOException, SecurityException {
-    final String PATH = "C:\\Users\\Benjamin\\Desktop\\Security\\Security_2021_Backend\\ValgfagBoilerPlateSecurity-2\\src\\main\\webapp\\ProfileImages\\";
+    final String PATH = "/Users/Patrick/Desktop/securityOpgave/ValgfagBoilerPlateSecurity-2/src/main/java/Log/";
 
         File f = new File(PATH + fileName);
         if(!f.exists()){

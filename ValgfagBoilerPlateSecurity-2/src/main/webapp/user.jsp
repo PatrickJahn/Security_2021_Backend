@@ -9,6 +9,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+    <link rel="stylesheet" href="forumStyle.css">
+
 <title>Users Page</title>
 </head>
 <% //In case, if Admin session is not set, redirect to Login page
@@ -26,16 +28,26 @@ Welcome <%=session.getAttribute("User") %>
 <div style="text-align: right"><a href="<%=request.getContextPath()%>/logout">Logout</a></div>
 <div style="text-align: right"><a href="<%=request.getContextPath()%>/msgForm.jsp">Post new msg</a></div>
 
+
+  <!-- Forum List -->
+            <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
+               
+                </div>
 <c:forEach var="msg" items="${requestScope.messages}">
     
    
     <div class="msgDiv">
-    <a class="msgUser" href="<%=request.getContextPath()%>/profileServlet?username=${msg.username}">${msg.username}</a>
+        
+        <img class="msgUserImg" src="ProfileImage/something">
     <h2 class="msgTitle">${msg.title}</h2>
+               <a class="msgUser" href="<%=request.getContextPath()%>/profileServlet?username=${msg.username}">by ${msg.username}</a>
+
     <h5 class="msgText">${msg.msg}</h5>
-    <img src="Images/${msg.imgPath}"/>
+    <img class="msgImg" src="Images/${msg.imgPath}"/>
 
 </div>
+    
+    
       </c:forEach>
 
 </body>
