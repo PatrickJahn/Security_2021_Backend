@@ -9,6 +9,7 @@
 <html>
     <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/background.css">
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Login</title>
@@ -17,26 +18,39 @@
     <body>
         
         <h1 class="display-10 d-flex justify-content-center">Welcome to the greatest forum! Please login in and find out what's inside.</h1>
+
+        
         <form name="form" action="<%=request.getContextPath()%>/login" method="post">
- 
-        <table align="center">
-        <tr>
-        <td>Username</td>
-        <td><input type="text" name="username" /></td>
-        </tr>
-        <tr>
-        <td>Password</td>
-        <td><input type="password" name="password" /></td>
-        </tr>
-        <tr>
-        <td><span style="color:red"><%=(request.getAttribute("errMessage") == null) ? "" : request.getAttribute("errMessage")%></span></td>
-        </tr>
-        <tr>
-        <td></td>
-        <td><input type="submit" value="Login"></input><input type="reset" value="Reset"></input></td>
-        </tr>
-        </table>
-        </form>
-        <a href="<%=request.getContextPath()%>/Signup.jsp">Signup here</a>
+ <div id="login">
+     <br>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a href="/Signup.jsp" class="text-info">Register here</a>
+                            </div>
+                        </form>
+                    </div>
+                            <td><span style="color:red"><%=(request.getAttribute("errMessage") == null) ? "" : request.getAttribute("errMessage")%></span></td>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
     </body>
 </html>
