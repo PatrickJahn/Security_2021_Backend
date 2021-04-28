@@ -3,14 +3,26 @@
     <welcome-file-list>
         <welcome-file>/login.jsp</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name>SignupAdminServlet</servlet-name>
+        <servlet-class>Controllers.SignupAdminServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>profileServlet</servlet-name>
         <url-pattern>/profileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignupAdminServlet</servlet-name>
+        <url-pattern>/SignupAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>5</session-timeout>
     </session-config>
     <!-- login sevles -->
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>Controllers.AdminServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>SomeController</servlet-name>
         <servlet-class>Controllers.SomeController</servlet-class>
@@ -39,13 +51,14 @@
         <servlet-name>profileServlet</servlet-name>
         <servlet-class>Controllers.profileServlet</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>SomeController</servlet-name>
-        <url-pattern>/test</url-pattern>
-    </servlet-mapping>
+  
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SignupServlet</servlet-name>

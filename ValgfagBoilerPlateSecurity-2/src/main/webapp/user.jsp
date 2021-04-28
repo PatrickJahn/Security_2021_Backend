@@ -23,7 +23,6 @@ if((request.getSession(false).getAttribute("User") == null) )
 
  <span style="color:red"><%=(request.getAttribute("errMessage") == null) ? "" : request.getAttribute("errMessage")%></span>
 Welcome <%=session.getAttribute("User") %>
- 
 <div style="text-align: right"><a href="<%=request.getContextPath()%>/logout">Logout</a></div>
 <div style="text-align: right"><a href="<%=request.getContextPath()%>/msgForm.jsp">Post new msg</a></div>
 

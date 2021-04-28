@@ -100,10 +100,50 @@ public class SignupImpl implements SignupDao {
     }
   
     }
+
+    @Override
+    public String createAdminUser(User user) {
+      
+    String userName = user.getUsername();
+    String password = user.getPassword();
     
-    
-    
-    
+    String firstName = user.getFirstName();
+    String lastName = user.getLastName();
+    String imgPath = user.getImgPath();
+    Connection con = null;
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+ 
+    String roleDB = "Admin";
+ 
+    try
+    {
+        con = imc.connect();
+        
+        // Source
+        statement = con.prepareStatement("INSERT INTO users (username, password, firstName, lastName, imgPath, role) values (?, ?, ?, ?, ?, ?)");
+       statement.setString(1, userName);
+       statement.setString(2, password);
+       statement.setString(3, firstName);
+       statement.setString(4, lastName);
+       statement.setString(5, imgPath);
+       statement.setString(6, roleDB);
+       
+       statement.executeUpdate();
+ 
+                
+           
+           
+ 
+           
+    }
+    catch(SQLException e)
+    {
+        e.printStackTrace();
+        return "Something went wrong";
+    }
+    return "New Admin-user was added";
+    }
 }
         
             

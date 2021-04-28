@@ -82,6 +82,23 @@ public class SignupService implements ISignupService {
 
     }
 
+    @Override
+    public String createAdminUser(String username, String password, String firstName, String lastName, String imgPath) throws SignupError {
+        verifyNames(firstName, lastName);
+        verifyCredentials(username, password);
+        
+          User user = new User();
+          user.setFirstName(firstName);
+          user.setLastName(lastName);
+          user.setUsername(username);
+          user.setImgPath(imgPath);
+          
+          String hashedPass = encryptPassword(password);
+          user.setPassword(hashedPass);
+        
+        return signupImpl.createAdminUser(user);
+    }
+
     
     
 }
