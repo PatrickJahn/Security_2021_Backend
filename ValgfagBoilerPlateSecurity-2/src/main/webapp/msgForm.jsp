@@ -15,16 +15,38 @@ if((request.getSession(false).getAttribute("User") == null) )
 <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="CSS/background.css">
+
     <title>New post</title>
     <style>
 textarea {
   resize: none;
  
 }
+        .center {
+            top: 50%; /* IMPORTANT */
+        left: 50%; /* IMPORTANT */
+        display: block;
+        position: absolute;
+        background: url(images/background.png) no-repeat center center;
+        width: 750px;
+        height: 417px;
+
+        margin-top: -208.5px; /* HALF OF THE HEIGHT */
+        margin-left: -375px; /* HALF OF THE WIDTH */
+        color: white;
+          text-shadow: 2px 2px #000000;
+
+
+}
+
+    
+
+
 </style>
     </head>
     <body>
-        
+        <div class="center">
         <h1>New message goes here </h1>
         <form enctype="multipart/form-data" name="form" action="<%=request.getContextPath()%>/msgForm" method="post">
  
@@ -51,6 +73,6 @@ textarea {
         </table>
         </form>
         
-      
+        </div>
     </body>
 </html>

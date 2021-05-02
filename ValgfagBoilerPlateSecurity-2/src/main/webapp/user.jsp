@@ -10,6 +10,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="forumStyle.css">
+    
 
 <title>Users Page</title>
 </head>

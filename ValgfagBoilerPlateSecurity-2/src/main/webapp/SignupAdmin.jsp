@@ -16,15 +16,35 @@ if((request.getSession(false).getAttribute("Admin") == null) )
 <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+            <link rel="stylesheet" href="CSS/background.css">
+
     <title>Signup Admin</title>
+    <style>
+        .center {
+            top: 50%; /* IMPORTANT */
+        left: 50%; /* IMPORTANT */
+        display: block;
+        position: absolute;
+        background: url(images/background.png) no-repeat center center;
+        width: 750px;
+        height: 417px;
+
+        margin-top: -208.5px; /* HALF OF THE HEIGHT */
+        margin-left: -375px; /* HALF OF THE WIDTH */
+        color: white;
+
+}
+
+    </style>
     </head>
     <body>
-          <h1>Signup a new admin user </h1>
+        <div class="center">
+        <h1 style="color:white">Signup a new admin user </h1>
         <form enctype="multipart/form-data" name="form" action="<%=request.getContextPath()%>/SignupAdmin" method="post">
  
         <table align="center">
         <tr>
-        <td>Username</td>
+            <td style="color:white">Username</td>
         <td><input type="text" name="username" /></td>
         </tr>
          <tr>
@@ -53,5 +73,6 @@ if((request.getSession(false).getAttribute("Admin") == null) )
         </tr>
         </table>
         </form>
+        </div>
     </body>
 </html>
