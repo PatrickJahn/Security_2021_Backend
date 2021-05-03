@@ -9,24 +9,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <link rel="stylesheet" href="forumStyle.css">
-
+    <link rel="stylesheet" href="CSS/forumStyle.css">
+    <link rel="stylesheet" href="CSS/Navbar.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Users Page</title>
-</head>
 <% //In case, if Admin session is not set, redirect to Login page
 if((request.getSession(false).getAttribute("User") == null) )
 {
 %>
 <jsp:forward page="/"></jsp:forward>
 <%} %>
+</head>
+
 <body>
+    
+    
+    <!-- Navbar -->
+    
+    <ul>
+        <li><a href="<%=request.getContextPath()%>/profileServlet?username=<%=session.getAttribute("User")%>">My profile</a></li>
+          <li class="active"><a href="<%=request.getContextPath()%>/homeservlet">Forum</a></li>
+        <li><a href="<%=request.getContextPath()%>/msgForm.jsp">New post</a></li>
+        <li class="logout"><a href="<%=request.getContextPath()%>/logout">Log out</a></li>
+   <li class="logouttxt" ><a>User (<%=session.getAttribute("User") %>) </a></li>
+</ul>
+    
+    
+    
 <center><h2>User's Forum</h2></center>
 
 
  <span style="color:red"><%=(request.getAttribute("errMessage") == null) ? "" : request.getAttribute("errMessage")%></span>
-Welcome <%=session.getAttribute("User") %>
-<div style="text-align: right"><a href="<%=request.getContextPath()%>/logout">Logout</a></div>
-<div style="text-align: right"><a href="<%=request.getContextPath()%>/msgForm.jsp">Post new msg</a></div>
+
+
 
 
   <!-- Forum List -->

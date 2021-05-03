@@ -2,3 +2,11 @@ Apr 28, 2021 3:05:03 PM Log.Log logging
 INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with Patrick
 Apr 28, 2021 3:05:03 PM Log.Log logging
 INFO: Request from IP: 0:0:0:0:0:0:0:1. Patrick has succesfully logged in
+Apr 30, 2021 12:51:58 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with Patrick
+Apr 30, 2021 12:51:58 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Patrick has succesfully logged in
+May 03, 2021 11:15:56 AM Log.Log logging
+INFO: Request from IP: 127.0.0.1. Attempted login with Patrick
+May 03, 2021 11:15:57 AM Log.Log logging
+INFO: Request from IP: 127.0.0.1. Patrick has succesfully logged in

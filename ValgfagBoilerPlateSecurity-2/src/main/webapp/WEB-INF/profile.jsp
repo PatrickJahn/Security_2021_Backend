@@ -11,7 +11,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Profile</title>
-            <link rel="stylesheet" href="forumStyle.css">
+            <link rel="stylesheet" href="CSS/forumStyle.css">
+              <link rel="stylesheet" href="CSS/profileStyle.css">
+            <link rel="stylesheet" href="CSS/Navbar.css">
 
         <% //In case, if Admin session is not set, redirect to Login page
 if((request.getSession(false).getAttribute("User") == null) )
@@ -21,17 +23,31 @@ if((request.getSession(false).getAttribute("User") == null) )
 <%} %>
     </head>
     <body>
-        <h1><c:out value="${requestScope.clickedUser.username}"> </c:out></h1>
         
-            <h2> Name: <c:out value="${requestScope.clickedUser.firstName}" ></c:out>
-                        <c:out value=" ${requestScope.clickedUser.lastName}" ></c:out>
-        </h2> 
-        <h3>Profile Image:</h3>
-        <img src="ProfileImages/${requestScope.clickedUser.imgPath}"/>
-                        <h1>${msg.imgPath}</h1>               
-        <h2>All posts made by <c:out value="${requestScope.clickedUser.username}"> </c:out> </h2>
-        
+           <!-- Navbar -->
+    
+    <ul>
+        <li class="active"><a href="<%=request.getContextPath()%>/profileServlet?username=<%=session.getAttribute("User")%>">My profile</a></li>
+          <li ><a href="<%=request.getContextPath()%>/homeservlet">Forum</a></li>
+        <li><a href="<%=request.getContextPath()%>/msgForm.jsp">New post</a></li>
+        <li class="logout"><a href="<%=request.getContextPath()%>/logout">Log out</a></li>
+   <li class="logouttxt" ><a>User (<%=session.getAttribute("User") %>) </a></li>
+</ul>
 
+
+            <img class="pb" src="ProfileImages/${requestScope.clickedUser.imgPath}"/>
+            <div class="info">
+        <h1 class="username"><c:out value="${requestScope.clickedUser.username}"> </c:out></h1>
+        
+            <h2 class="name"> Name: <c:out value="${requestScope.clickedUser.firstName}" ></c:out>
+                        <c:out value=" ${requestScope.clickedUser.lastName}" ></c:out>
+             </h2> 
+             </div>
+
+             <div class="madeby">                
+            <h2 class="postTitle">All posts made by <c:out value="${requestScope.clickedUser.username}"> </c:out> </h2>
+        
+            </div> 
 <c:forEach var="msg" items="${requestScope.messages}">
     
       <div class="msgDiv">

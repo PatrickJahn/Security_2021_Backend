@@ -17,6 +17,8 @@ private String title;
 private String msg; 
 private String imgPath;
 private String userName;
+private String userImg;
+
 
 public Msg(String title, String msg, String imgPath, String userName){
 this.title = title;
@@ -41,6 +43,17 @@ return this.msg;
 public String getImgPath(){
 return this.imgPath;
 }
+
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
+    }
+
+
+
 
     @Override
     public String toString() {
