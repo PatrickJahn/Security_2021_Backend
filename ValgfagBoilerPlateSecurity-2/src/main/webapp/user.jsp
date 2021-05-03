@@ -11,6 +11,8 @@
 <head>
     <link rel="stylesheet" href="CSS/forumStyle.css">
     <link rel="stylesheet" href="CSS/Navbar.css">
+        <link rel="stylesheet" href="CSS/background.css">
+
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="forumStyle.css">
     
@@ -37,9 +39,13 @@ if((request.getSession(false).getAttribute("User") == null) )
    <li class="logouttxt" ><a>User (<%=session.getAttribute("User") %>) </a></li>
 </ul>
     
+<br>
+<br>
+<br>
+<br>
+
     
-    
-<center><h2>User's Forum</h2></center>
+<center><h2 style="color:white">User's Forum</h2></center>
 
 
  <span style="color:red"><%=(request.getAttribute("errMessage") == null) ? "" : request.getAttribute("errMessage")%></span>
@@ -56,7 +62,7 @@ if((request.getSession(false).getAttribute("User") == null) )
    
     <div class="msgDiv">
         
-        <img class="msgUserImg" src="ProfileImage/something">
+ 
     <h2 class="msgTitle">${msg.title}</h2>
                <a class="msgUser" href="<%=request.getContextPath()%>/profileServlet?username=${msg.username}">by ${msg.username}</a>
 

@@ -16,6 +16,8 @@ if((request.getSession(false).getAttribute("User") == null) )
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link rel="stylesheet" href="CSS/background.css">
+        <link rel="stylesheet" href="CSS/Navbar.css">
+
 
     <title>New post</title>
     <style>
@@ -46,6 +48,14 @@ textarea {
 </style>
     </head>
     <body>
+            
+    <ul>
+        <li><a href="<%=request.getContextPath()%>/profileServlet?username=<%=session.getAttribute("User")%>">My profile</a></li>
+          <li><a href="<%=request.getContextPath()%>/homeservlet">Forum</a></li>
+        <li class="active"><a href="<%=request.getContextPath()%>/msgForm.jsp">New post</a></li>
+        <li class="logout"><a href="<%=request.getContextPath()%>/logout">Log out</a></li>
+   <li class="logouttxt" ><a>User (<%=session.getAttribute("User") %>) </a></li>
+</ul>
         <div class="center">
         <h1>New message goes here </h1>
         <form enctype="multipart/form-data" name="form" action="<%=request.getContextPath()%>/msgForm" method="post">

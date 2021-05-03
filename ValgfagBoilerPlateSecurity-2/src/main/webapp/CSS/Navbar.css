@@ -15,17 +15,21 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+   background-color: rgba(0,0,0,0.5);
   left:0;
   position: fixed;
   top: 0;
   width: 100%;
 
 }
+ul.container{
+           background-color: rgba(255,255,255,0.5);
 
+}
 li {
   float: left;
 }
+
 
 li a {
   display: block;
@@ -38,7 +42,9 @@ li a {
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #111;
+   
 }
+
 
 .active {
   background-color: #0099ff;

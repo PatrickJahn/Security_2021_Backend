@@ -14,6 +14,8 @@
             <link rel="stylesheet" href="CSS/forumStyle.css">
               <link rel="stylesheet" href="CSS/profileStyle.css">
             <link rel="stylesheet" href="CSS/Navbar.css">
+                    <link rel="stylesheet" href="CSS/background.css">
+                    
 
         <% //In case, if Admin session is not set, redirect to Login page
 if((request.getSession(false).getAttribute("User") == null) )
@@ -31,12 +33,12 @@ if((request.getSession(false).getAttribute("User") == null) )
           <li ><a href="<%=request.getContextPath()%>/homeservlet">Forum</a></li>
         <li><a href="<%=request.getContextPath()%>/msgForm.jsp">New post</a></li>
         <li class="logout"><a href="<%=request.getContextPath()%>/logout">Log out</a></li>
-   <li class="logouttxt" ><a>User (<%=session.getAttribute("User") %>) </a></li>
+   <li disabled class="logouttxt" ><a>User (<%=session.getAttribute("User") %>) </a></li>
 </ul>
 
 
             <img class="pb" src="ProfileImages/${requestScope.clickedUser.imgPath}"/>
-            <div class="info">
+            <div style="color: white"class="info">
         <h1 class="username"><c:out value="${requestScope.clickedUser.username}"> </c:out></h1>
         
             <h2 class="name"> Name: <c:out value="${requestScope.clickedUser.firstName}" ></c:out>
@@ -45,14 +47,14 @@ if((request.getSession(false).getAttribute("User") == null) )
              </div>
 
              <div class="madeby">                
-            <h2 class="postTitle">All posts made by <c:out value="${requestScope.clickedUser.username}"> </c:out> </h2>
+                 <h2  style="color:white" class="postTitle">All posts made by <c:out value="${requestScope.clickedUser.username}"> </c:out> </h2>
         
             </div> 
 <c:forEach var="msg" items="${requestScope.messages}">
     
-      <div class="msgDiv">
+    <div style="color:white"class="msgDiv">
         
-        <img class="msgUserImg" src="ProfileImage/something">
+     
     <h2 class="msgTitle">${msg.title}</h2>
                <a class="msgUser" href="<%=request.getContextPath()%>/profileServlet?username=${msg.username}">by ${msg.username}</a>
 

@@ -12,7 +12,7 @@ and open the template in the editor.
 .pb{
     width: 200px;
     height: 200px;
-    background-color: #0033cc;
+    background-color: transparent;
 
     
      display: inline-block;

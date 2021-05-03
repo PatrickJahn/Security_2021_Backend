@@ -11,12 +11,18 @@ and open the template in the editor.
 
 
 .msgDiv{
-    background-color: white;
+    background-color: transparent;
      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
      border-radius: 10px;
      width: 60%;
      margin-left: auto;
          margin-right: auto; 
+         
+}
+.msgDiv{
+        box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+
+ 
 }
 
 .msgText {
