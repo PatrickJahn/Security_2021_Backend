@@ -32,6 +32,8 @@ if((request.getSession(false).getAttribute("Admin") == null) )
         margin-top: -208.5px; /* HALF OF THE HEIGHT */
         margin-left: -375px; /* HALF OF THE WIDTH */
         color: white;
+                          text-shadow: 2px 2px #000000;
+
 
 }
 

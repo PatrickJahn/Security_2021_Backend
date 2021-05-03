@@ -132,3 +132,13 @@ May 02, 2021 10:25:59 PM Log.Log logging
 INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin1
 May 02, 2021 10:25:59 PM Log.Log logging
 INFO: Request from IP: 0:0:0:0:0:0:0:1. benjamin1 has succesfully logged in
+May 03, 2021 10:57:03 AM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with John
+May 03, 2021 10:57:54 AM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin1
+May 03, 2021 10:57:55 AM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. benjamin1 has succesfully logged in
+May 03, 2021 11:16:14 AM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin1
+May 03, 2021 11:16:15 AM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. benjamin1 has succesfully logged in
