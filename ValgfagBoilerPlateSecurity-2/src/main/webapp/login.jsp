@@ -17,31 +17,30 @@
     
     <body>
         
-        <h1 class="display-10 d-flex justify-content-center">Welcome to the greatest forum! Please login in and find out what's inside.</h1>
-
-        
+            <h1 class="display-10 d-flex justify-content-center text-white">Welcome to the greatest forum! Please login and find out what's inside.</h1>
+      
         <form name="form" action="<%=request.getContextPath()%>/login" method="post">
  <div id="login">
      <br>
         <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-row" class="row justify-content-center align-items-center text-primary">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="" method="post">
-                            <h3 class="text-center text-info">Login</h3>
+                            <h3 class="text-center text-white">Login</h3>
                             <div class="form-group">
-                                <label for="username" class="text-info">Username:</label><br>
+                                <label for="username" class="text-white">Username:</label><br>
                                 <input type="text" name="username" id="username" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-info">Password:</label><br>
+                                <label for="password" class="text-white">Password:</label><br>
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="/Signup.jsp" class="text-info">Register here</a>
+                                <a href="/Signup.jsp" class="text-white">Register here</a>
                             </div>
                         </form>
                     </div>

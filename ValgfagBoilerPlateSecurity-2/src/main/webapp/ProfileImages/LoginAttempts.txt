@@ -104,3 +104,31 @@ Apr 28, 2021 2:45:12 PM Log.Log logging
 INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with asasd
 Apr 28, 2021 2:45:12 PM Log.Log logging
 INFO: Request from IP: 0:0:0:0:0:0:0:1. Unsuccesful login attempted with username: asasd
+Apr 28, 2021 3:07:57 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin1
+Apr 28, 2021 3:07:58 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. benjamin1 has succesfully logged in
+Apr 28, 2021 3:08:11 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with John
+Apr 28, 2021 3:38:28 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin1
+Apr 28, 2021 3:38:28 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. benjamin1 has succesfully logged in
+May 02, 2021 10:10:56 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin1
+May 02, 2021 10:10:57 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Unsuccesful login attempted with username: benjamin1
+May 02, 2021 10:11:01 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin
+May 02, 2021 10:11:01 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Unsuccesful login attempted with username: benjamin
+May 02, 2021 10:11:29 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin1
+May 02, 2021 10:11:29 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. benjamin1 has succesfully logged in
+May 02, 2021 10:23:26 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with John
+May 02, 2021 10:25:59 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. Attempted login with benjamin1
+May 02, 2021 10:25:59 PM Log.Log logging
+INFO: Request from IP: 0:0:0:0:0:0:0:1. benjamin1 has succesfully logged in

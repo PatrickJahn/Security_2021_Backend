@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="CSS/forumStyle.css">
     <link rel="stylesheet" href="CSS/Navbar.css">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forumStyle.css">
+    
+
 <title>Users Page</title>
 <% //In case, if Admin session is not set, redirect to Login page
 if((request.getSession(false).getAttribute("User") == null) )
