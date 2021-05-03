@@ -13,14 +13,21 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Login</title>
+    <style>
+        .login{
+                      text-shadow: 2px 2px #000000;
+
+        }
+    </style>
     </head>
     
     <body>
         
-            <h1 class="display-10 d-flex justify-content-center text-white">Welcome to the greatest forum! Please login and find out what's inside.</h1>
+         
       
         <form name="form" action="<%=request.getContextPath()%>/login" method="post">
- <div id="login">
+ <div class="login">
+        <h1 class="display-10 d-flex justify-content-center text-white">Welcome to the greatest forum! Please login and find out what's inside.</h1>
      <br>
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center text-primary">
