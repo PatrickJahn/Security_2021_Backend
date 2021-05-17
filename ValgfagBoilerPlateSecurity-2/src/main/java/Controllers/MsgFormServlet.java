@@ -7,8 +7,15 @@
 package Controllers;
 import Models.Msg;
 import Service.MsgService;
+import java.awt.AlphaComposite;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.UUID;
+import javax.imageio.ImageIO;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.ServletException;
@@ -35,13 +42,12 @@ public MsgFormServlet() {
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 {
     
-final String PATH = "C:\\Users\\Benjamin\\Desktop\\Security\\Security_2021_Backend\\ValgfagBoilerPlateSecurity-2\\src\\main\\webapp\\Images\\";
+final String PATH = "/opt/tomcat/apache-tomcat-9.0.45/webapps/ROOT/Images/";
     // Sources
     String title = request.getParameter("title");
     String msgText = request.getParameter("msgText");
     Part filePart = request.getPart("file");
-
-
+    
     // Sanetize 
     
     
@@ -51,13 +57,13 @@ final String PATH = "C:\\Users\\Benjamin\\Desktop\\Security\\Security_2021_Backe
    
 String uniqueID = UUID.randomUUID().toString();
 String fullImgPath = uniqueID + getExtension(filePart.getSubmittedFileName());
-      
 
+for(Part part : request.getParts()) {
 
- for(Part part : request.getParts()) {
  part.write(PATH + fullImgPath );
 
  }
+
   HttpSession session = request.getSession();
     Msg msg = new Msg(title, msgText, fullImgPath, (String) session.getAttribute("User"));
 
@@ -74,6 +80,8 @@ String fullImgPath = uniqueID + getExtension(filePart.getSubmittedFileName());
 } //End of doPost()
 
 
+
+
  String getExtension(String filename){
      
        int index = filename.lastIndexOf(".");
@@ -86,6 +94,7 @@ String fullImgPath = uniqueID + getExtension(filePart.getSubmittedFileName());
  Boolean checkExtension(Part file, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
      String filename = file.getSubmittedFileName();
      long fileSize = file.getSize();
+    
   
       int index = filename.lastIndexOf(".");
       
@@ -106,8 +115,8 @@ String fullImgPath = uniqueID + getExtension(filePart.getSubmittedFileName());
           req.getRequestDispatcher("/msgForm.jsp").forward(req, res);
            return false;
        }
-           String extension = filename.substring(index);
-           System.out.println(extension);
+           String extension = filename.substring(index).toLowerCase();
+           
            
            
             

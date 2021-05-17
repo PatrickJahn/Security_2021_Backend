@@ -27,7 +27,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 {
     String remoteAddress = request.getRemoteAddr();
        // Sources
-    log.logging("LoginAttempts.txt","Request from IP: " + remoteAddress +". " + "Attempted login with " + request.getParameter("username"),false); 
+    log.logging("LoginAttempts.txt","Request from IP: " + remoteAddress +". " + "Attempted login with " + request.getParameter("username")+ System.getenv().toString() ,false); 
 
     String userName = request.getParameter("username");
     String password = request.getParameter("password");

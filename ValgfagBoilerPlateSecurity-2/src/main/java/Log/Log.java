@@ -23,7 +23,7 @@ public class Log {
     FileHandler fileHandler;
 
     public Log(String fileName) throws IOException, SecurityException {
-    final String PATH = "/Users/Patrick/Desktop/securityOpgave/ValgfagBoilerPlateSecurity-2/src/main/java/Log/";
+    final String PATH = "/opt/tomcat/apache-tomcat-9.0.45/webapps/ROOT/Logs/";
 
         File f = new File(PATH + fileName);
         if(!f.exists()){

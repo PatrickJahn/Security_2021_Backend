@@ -1,2 +1,0 @@
-Apr 28, 2021 2:09:29 PM Log.Log logging
-INFO: Admin user: John has deleted user with id: 29

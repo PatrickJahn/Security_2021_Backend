@@ -37,7 +37,7 @@ public class SignupAdminServlet extends HttpServlet {
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 {
     System.out.println("Admin Signup");
-    final String PATH = "C:\\Users\\Benjamin\\Desktop\\Security\\Security_2021_Backend\\ValgfagBoilerPlateSecurity-2\\src\\main\\webapp\\ProfileImages\\";
+    final String PATH = "/opt/tomcat/apache-tomcat-9.0.45/webapps/ROOT/ProfileImages/";
 
 
     // Sources

@@ -33,7 +33,7 @@ if((request.getSession(false).getAttribute("User") == null) )
           <li ><a href="<%=request.getContextPath()%>/homeservlet">Forum</a></li>
         <li><a href="<%=request.getContextPath()%>/msgForm.jsp">New post</a></li>
         <li class="logout"><a href="<%=request.getContextPath()%>/logout">Log out</a></li>
-   <li disabled class="logouttxt" ><a>User (<%=session.getAttribute("User") %>) </a></li>
+   <li class="logouttxt" ><a>User (<%=session.getAttribute("User") %>) </a></li>
 </ul>
 
 
