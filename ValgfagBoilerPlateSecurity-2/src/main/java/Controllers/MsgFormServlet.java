@@ -47,16 +47,19 @@ final String PATH = "/opt/tomcat/apache-tomcat-9.0.45/webapps/ROOT/Images/";
     String title = request.getParameter("title");
     String msgText = request.getParameter("msgText");
     Part filePart = request.getPart("file");
+
+    
     
     // Sanetize 
-    
-    
-   if (checkExtension(filePart, request, response) && 
-       CheckTextandTitle(title, msgText, request, response)){
        
-   
 String uniqueID = UUID.randomUUID().toString();
 String fullImgPath = uniqueID + getExtension(filePart.getSubmittedFileName());
+String test = checkExtension(filePart, request, response);
+
+
+   if (test.equals("true")){
+       
+   
 
 for(Part part : request.getParts()) {
 
@@ -64,20 +67,26 @@ for(Part part : request.getParts()) {
 
  }
 
-  HttpSession session = request.getSession();
+
+
+               }else{
+   fullImgPath = "";
+   }
+ 
+   if(CheckTextandTitle(title, msgText, request, response) && !test.equals("false")){
+        HttpSession session = request.getSession();
     Msg msg = new Msg(title, msgText, fullImgPath, (String) session.getAttribute("User"));
 
   MsgService msgService = new MsgService();
   
  
     msgService.addNewMsg(msg);
-    
-
-            
-   response.sendRedirect("/homeservlet");
+    response.sendRedirect("/homeservlet");
    }
- 
+   
+   
 } //End of doPost()
+
 
 
 
@@ -86,34 +95,38 @@ for(Part part : request.getParts()) {
      
        int index = filename.lastIndexOf(".");
        
+       if(index < 0){ return "";}
+       
        String extension = filename.substring(index);
        return extension;
        
  }
  
- Boolean checkExtension(Part file, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+ String checkExtension(Part file, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+     
+     if(file.getName() == null){
+     return "noImg";
+     }
+     
      String filename = file.getSubmittedFileName();
      long fileSize = file.getSize();
     
   
       int index = filename.lastIndexOf(".");
-      
-      if (index < 0){
-           req.setAttribute("errMessage", "Please select a image");
-          req.getRequestDispatcher("/msgForm.jsp").forward(req, res);
-          return false;
-      }
+      if (index < 0 ){
+      return "noImg";
+      }     
       
       if (fileSize > 10000000){
           req.setAttribute("errMessage", "File is too large");
           req.getRequestDispatcher("/msgForm.jsp").forward(req, res);
-          return false;
+          return "false";
       }
      
        if (index >  30){
              req.setAttribute("errMessage", "File name too long");
           req.getRequestDispatcher("/msgForm.jsp").forward(req, res);
-           return false;
+           return "false";
        }
            String extension = filename.substring(index).toLowerCase();
            
@@ -124,13 +137,16 @@ for(Part part : request.getParts()) {
             req.setAttribute("errMessage", "File must be png or jpg");
           req.getRequestDispatcher("/msgForm.jsp").forward(req, res);
      
-          return false;
+          return "false";
       }
       
-       return true;
+       return "true";
        
  }
  
+ 
+ void createMsgNoImg(){}
+ void createMsgWithImg(){}
  
  Boolean CheckTextandTitle(String title,String msgText, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
      

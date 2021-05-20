@@ -63,7 +63,7 @@ textarea {
         <table align="center">
         <tr>
         <td>Title</td>
-        <td><input type="text"  name="title" required /></td>
+        <td><input type="text" placeholder="Title goes here" name="title" required /></td>
         </tr>
         <tr>
         <td>Message text</td>

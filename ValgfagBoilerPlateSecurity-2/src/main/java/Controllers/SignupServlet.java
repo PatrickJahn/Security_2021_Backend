@@ -36,7 +36,7 @@ public class SignupServlet extends HttpServlet {
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 {
     
-    final String PATH = "/opt/tomcat/apache-tomcat-9.0.45/webapps/ROOT/ProfileImages/";
+    final String PATH = "/media/ProfileImages/";
 
 
     // Sources

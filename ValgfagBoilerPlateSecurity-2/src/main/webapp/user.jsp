@@ -60,17 +60,20 @@ if((request.getSession(false).getAttribute("User") == null) )
 <c:forEach var="msg" items="${requestScope.messages}">
     
    
-    <div class="msgDiv">
+    <div style="color:white" class="msgDiv">
         
  
     <h2 class="msgTitle">${msg.title}</h2>
                <a class="msgUser" href="<%=request.getContextPath()%>/profileServlet?username=${msg.username}">by ${msg.username}</a>
 
     <h5 class="msgText">${msg.msg}</h5>
-    <img class="msgImg" src="Images/${msg.imgPath}"/>
-
-</div>
+    <c:if test="${msg.imgPath != \"\"}">
     
+    <img class="msgImg" src="Images/${msg.imgPath}" />
+
+    </c:if>
+</div>
+    <br>
     
       </c:forEach>
 

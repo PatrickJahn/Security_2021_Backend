@@ -22,12 +22,21 @@ private static final long serialVersionUID = 1L;
 private Log log;
 public LoginServlet() {
 }
+    
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public LoginServlet(Log log) {
+        this.log = log;
+    }
 
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 {
-    String remoteAddress = request.getRemoteAddr();
+    String remoteAddress = request.getHeader("X-Real-IP");
        // Sources
-    log.logging("LoginAttempts.txt","Request from IP: " + remoteAddress +". " + "Attempted login with " + request.getParameter("username")+ System.getenv().toString() ,false); 
+    log.logging("LoginAttempts.txt","Request from IP: " + remoteAddress +". " + "Attempted login with " + request.getParameter("username"),false); 
 
     String userName = request.getParameter("username");
     String password = request.getParameter("password");
