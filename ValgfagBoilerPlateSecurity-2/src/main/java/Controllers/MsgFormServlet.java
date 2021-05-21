@@ -54,34 +54,29 @@ final String PATH = "/opt/tomcat/apache-tomcat-9.0.45/webapps/ROOT/Images/";
        
 String uniqueID = UUID.randomUUID().toString();
 String fullImgPath = uniqueID + getExtension(filePart.getSubmittedFileName());
-String test = checkExtension(filePart, request, response);
+String isExtensionOk = checkExtension(filePart, request, response);
 
 
-   if (test.equals("true")){
+   if (isExtensionOk.equals("true")){
        
    
+        for(Part part : request.getParts()) {
+             part.write(PATH + fullImgPath );
+           }
 
-for(Part part : request.getParts()) {
-
- part.write(PATH + fullImgPath );
-
- }
-
-
-
-               }else{
-   fullImgPath = "";
-   }
+       }else{
+       fullImgPath = "";
+       }
  
-   if(CheckTextandTitle(title, msgText, request, response) && !test.equals("false")){
+   
+   if(CheckTextandTitle(title, msgText, request, response) && !isExtensionOk.equals("false")){
         HttpSession session = request.getSession();
-    Msg msg = new Msg(title, msgText, fullImgPath, (String) session.getAttribute("User"));
-
-  MsgService msgService = new MsgService();
-  
+        
+        Msg msg = new Msg(title, msgText, fullImgPath, (String) session.getAttribute("User"));
+        MsgService msgService = new MsgService();
  
-    msgService.addNewMsg(msg);
-    response.sendRedirect("/homeservlet");
+        msgService.addNewMsg(msg);
+        response.sendRedirect("/homeservlet");
    }
    
    

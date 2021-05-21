@@ -49,13 +49,14 @@ public class AdminServlet extends HttpServlet {
                   try {
                       adminService.deleteUser(id);
                   } catch (AdminError ex) {
-                   request.setAttribute("errMessage",ex.getMessage());
-       
-                   request.getRequestDispatcher("/admin").forward(request, response);
-      
+                        request.setAttribute("errMessage",ex.getMessage());
+                        request.getRequestDispatcher("/admin").forward(request, response);
                   }
+                  
+                  
        log.logging("AdminActions.txt", "Admin user: "+ session.getAttribute("Admin") +" has deleted user with id: " + request.getParameter("deleteiduser"),false);
     }
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         

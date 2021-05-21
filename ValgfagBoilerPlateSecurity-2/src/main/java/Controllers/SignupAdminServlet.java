@@ -50,31 +50,27 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
        if (checkExtension(filePart, request, response)){
        
    
-String uniqueID = UUID.randomUUID().toString();
-String fullImgPath = uniqueID + getExtension(filePart.getSubmittedFileName());
+        String uniqueID = UUID.randomUUID().toString();
+        String fullImgPath = uniqueID + getExtension(filePart.getSubmittedFileName());
       
+        for(Part part : request.getParts()) {
+        part.write(PATH + fullImgPath );
 
-
- for(Part part : request.getParts()) {
- part.write(PATH + fullImgPath );
-
- }
+        }
     
   
     SignupService signupService = new SignupService();
  
-    try
-    {
+    try{
         
             signupService.createAdminUser(userName, password, firstName, lastName, fullImgPath);
             HttpSession session = request.getSession();
+            
             log.logging("AdminActions.txt", "Admin user: "+ session.getAttribute("Admin") + " has created a new admin user with the username: " + userName,false);
 
            response.sendRedirect("/admin");
   
-    }
-    catch (SignupError e)
-    {
+    } catch (SignupError e) {
        request.setAttribute("errMessage",e.getMessage());
        response.sendRedirect("/AdminSignup.jsp");
         
@@ -88,7 +84,6 @@ String fullImgPath = uniqueID + getExtension(filePart.getSubmittedFileName());
  String getExtension(String filename){
      
        int index = filename.lastIndexOf(".");
-       
        String extension = filename.substring(index);
        return extension;
        

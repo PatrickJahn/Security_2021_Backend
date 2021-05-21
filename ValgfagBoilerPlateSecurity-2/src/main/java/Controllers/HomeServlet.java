@@ -33,12 +33,8 @@ public class HomeServlet extends HttpServlet {
           Collections.reverse(messages);
           request.setAttribute("messages", messages);
          
-       
-         
-        
          request.getRequestDispatcher("/user.jsp").forward(request, response);
 
-        
     }
 
    
